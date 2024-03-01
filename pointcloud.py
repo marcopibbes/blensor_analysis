@@ -2,29 +2,20 @@ import numpy as np
 import matplotlib as plt
 import open3d as o3d
 
-def generateGraphics(points1,points2,points3,filtered):
+def generateGraphics(pointclouds,filtered):
 
-  pcd1 = o3d.geometry.PointCloud()
-  pcd1.points = o3d.utility.Vector3dVector(points1)
-
-  pcd2 = o3d.geometry.PointCloud()
-  pcd2.points = o3d.utility.Vector3dVector(points2)
-
-  pcd3 = o3d.geometry.PointCloud()
-  pcd3.points = o3d.utility.Vector3dVector(points3)
-
+  pcds=[]
+  for pointcloud in pointclouds:
+    pcd= o3d.geometry.PointCloud()
+    pcd.points = o3d.utility.Vector3dVector(pointcloud)
+    pcds.append(pcd)
+  
   combined_pcd = o3d.geometry.PointCloud()
 
-  for point in pcd1.points:
-    combined_pcd.points.append(point)
-
-  for point in pcd2.points:
-    if point not in combined_pcd.points:  
-      combined_pcd.points.append(point)
-
-  for point in pcd3.points:
-    if point not in combined_pcd.points:
-      combined_pcd.points.append(point)
+  for pcd in pcds:
+    for point in pcd.points:
+      if point not in combined_pcd.points:
+        combined_pcd.points.append(point)
   
   if(filtered==1):
     filtered_pcd = combined_pcd.select_by_index([i for i in range(len(combined_pcd.points)) if combined_pcd.points[i][2] > -1.2])
@@ -48,8 +39,8 @@ def clusterData(pcds):
 
     bounding_boxes = []
     for cluster in clusters:
-        aabb = cluster.get_axis_aligned_bounding_box()
-        aabb.color = [1,0,0]
+        aabb = cluster.get_oriented_bounding_box()
+        aabb.color = [0,1,0]
         bounding_boxes.append(aabb)
 
     colors = plt.cm.tab10(labels / (labels.max() if labels.max() > 0 else 1))
@@ -59,7 +50,7 @@ def clusterData(pcds):
 
 
 def visualizeGraphics(pcds):
-  for pcd in pcds:
-    o3d.visualization.draw([pcd],show_skybox=False)
+  #for pcd in pcds:
+  o3d.visualization.draw([pcds[0],pcds[1]],show_skybox=False)
     
   
