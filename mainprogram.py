@@ -20,5 +20,5 @@ pointcloud.clusterData(pcds)
 '''
 Multitarget tracking (es. sort)
 Intersection over union
-Aspetto blensor
+
 '''

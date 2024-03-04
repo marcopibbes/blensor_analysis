@@ -18,7 +18,7 @@ def generateGraphics(pointclouds,filtered):
         combined_pcd.points.append(point)
   
   if(filtered==1):
-    filtered_pcd = combined_pcd.select_by_index([i for i in range(len(combined_pcd.points)) if combined_pcd.points[i][2] > -1.2])
+    filtered_pcd = combined_pcd.select_by_index([i for i in range(len(combined_pcd.points)) if combined_pcd.points[i][2] > 0.2])
     filtered_downsampled_pcd=filtered_pcd.voxel_down_sample(voxel_size=0.25)
     return filtered_downsampled_pcd
   
@@ -50,7 +50,7 @@ def clusterData(pcds):
 
 
 def visualizeGraphics(pcds):
-  #for pcd in pcds:
-  o3d.visualization.draw([pcds[0],pcds[1]],show_skybox=False)
+  for pcd in pcds:
+   o3d.visualization.draw([pcd],show_skybox=False)
     
   
