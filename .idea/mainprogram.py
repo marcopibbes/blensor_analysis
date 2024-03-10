@@ -1,6 +1,5 @@
 import dataset_loader
 import pointcloud
-import tracking
 
 
 scans= input("Insert qty of scans: ")
@@ -15,6 +14,11 @@ for i in range (0,scans):
     pointclouds= dataset_loader.loadscan(sensors,i,int(noisy))
     pcds.append(pointcloud.generateGraphics(pointclouds,int(filtered)))
 
-#pointcloud.visualizeGraphics(pcds)
-bounding_boxes=pointcloud.clusterData(pcds)
-tracking.track(bounding_boxes)
+pointcloud.visualizeGraphics(pcds)
+#22pointcloud.clusterData(pcds)
+
+'''
+Multitarget tracking (es. sort)
+Intersection over union
+
+'''

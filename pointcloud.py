@@ -18,16 +18,17 @@ def generateGraphics(pointclouds,filtered):
         combined_pcd.points.append(point)
   
   if(filtered==1):
-    filtered_pcd = combined_pcd.select_by_index([i for i in range(len(combined_pcd.points)) if combined_pcd.points[i][2] > 0.2])
-    filtered_downsampled_pcd=filtered_pcd.voxel_down_sample(voxel_size=0.25)
+    filtered_pcd = combined_pcd.select_by_index([i for i in range(len(combined_pcd.points)) if combined_pcd.points[i][2] > 0.3])
+    filtered_downsampled_pcd=filtered_pcd.voxel_down_sample(voxel_size=0.5)
     return filtered_downsampled_pcd
   
   else:
-    combined_downsampled_pcd=combined_pcd.voxel_down_sample(voxel_size=0.25)
+    combined_downsampled_pcd=combined_pcd.voxel_down_sample(voxel_size=0.5)
     return combined_downsampled_pcd
   
 
 def clusterData(pcds):
+  global_bboxes=[]
   for pcd in pcds:
 
     labels = np.array(pcd.cluster_dbscan(eps=2, min_points=5, print_progress=True))
@@ -42,15 +43,17 @@ def clusterData(pcds):
         aabb = cluster.get_oriented_bounding_box()
         aabb.color = [0,1,0]
         bounding_boxes.append(aabb)
+        global_bboxes.append(aabb)
 
     colors = plt.cm.tab10(labels / (labels.max() if labels.max() > 0 else 1))
     pcd.colors = o3d.utility.Vector3dVector(colors[:, :3])
 
-    o3d.visualization.draw([pcd, *bounding_boxes],show_skybox=False)
+    o3d.visualization.draw([pcd,*bounding_boxes],show_skybox=False)
 
+  return global_bboxes
 
 def visualizeGraphics(pcds):
-  for pcd in pcds:
-   o3d.visualization.draw([pcd],show_skybox=False)
+ # for pcd in pcds:
+  o3d.visualization.draw([pcds[0],pcds[8]],show_skybox=False)
     
   
