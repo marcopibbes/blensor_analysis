@@ -1,7 +1,7 @@
 import numpy as np
 import open3d as o3d
 import random
-import copy
+import matplotlib.pyplot as plt
 
 def track(bounding_boxes):
 
@@ -44,6 +44,26 @@ def track(bounding_boxes):
                 
         
     o3d.visualization.draw([*bounding_boxes],show_skybox=False)
+    return bounding_boxes
+
+def plot_trajectories(bounding_boxes):
+
+    x_coords=[]
+    y_coords=[]
+  
+    for bbox in bounding_boxes:
+        x_coords.append(np.asarray(bbox.get_center())[0])
+        y_coords.append(np.asarray(bbox.get_center())[1])
+
+
+    plt.plot(x_coords, y_coords, marker='o', linestyle='')  
+    plt.xlabel("X-axis")
+    plt.ylabel("Y-axis")
+    plt.title("Extimated Trajectories")
+
+    
+    plt.show()
+
             
         
 

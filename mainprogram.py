@@ -3,6 +3,7 @@ import pointcloud
 import tracking
 
 
+
 scans= input("Insert qty of scans: ")
 scans=int(scans)
 sensors= input("Insert qty of sensors: ")
@@ -17,4 +18,6 @@ for i in range (0,scans):
 
 #pointcloud.visualizeGraphics(pcds)
 bounding_boxes=pointcloud.clusterData(pcds)
-tracking.track(bounding_boxes)
+trackedboxes=tracking.track(bounding_boxes)
+tracking.plot_trajectories(trackedboxes)
+dataset_loader.loadpitt()

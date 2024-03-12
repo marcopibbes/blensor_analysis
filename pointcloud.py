@@ -29,6 +29,7 @@ def generateGraphics(pointclouds,filtered):
 
 def clusterData(pcds):
   global_bboxes=[]
+  
   for pcd in pcds:
 
     labels = np.array(pcd.cluster_dbscan(eps=2, min_points=5, print_progress=True))
@@ -49,7 +50,7 @@ def clusterData(pcds):
     pcd.colors = o3d.utility.Vector3dVector(colors[:, :3])
 
     o3d.visualization.draw([pcd,*bounding_boxes],show_skybox=False)
-
+    
   return global_bboxes
 
 def visualizeGraphics(pcds):

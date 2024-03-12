@@ -1,4 +1,5 @@
 import numpy as np
+import matplotlib.pyplot as plt
 
 def loadscan(sensors,scan, noisy):
         
@@ -54,3 +55,16 @@ def loadscan(sensors,scan, noisy):
 
         return points
 
+def loadpitt():
+
+        trajectories= np.loadtxt("./BLENSOR/pitt_trajectories.csv", delimiter=",",skiprows=1,usecols=range(0,3))
+        x_coords=trajectories[:,1]
+        y_coords=trajectories[:,2]
+        plt.plot(x_coords, y_coords, marker='o', linestyle='')  
+        plt.xlabel("X-axis")
+        plt.ylabel("Y-axis")
+        plt.title("Extimated Trajectories")
+
+        
+        plt.show()
+                
