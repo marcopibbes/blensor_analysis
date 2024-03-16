@@ -63,8 +63,6 @@ def loadpitt():
         plt.plot(x_coords, y_coords, marker='o', linestyle='')  
         plt.xlabel("X-axis")
         plt.ylabel("Y-axis")
-        plt.title("Extimated Trajectories")
-
-        
+        plt.title("Real Trajectories")
         plt.show()
                 

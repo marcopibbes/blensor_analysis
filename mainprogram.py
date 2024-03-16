@@ -12,7 +12,7 @@ noisy= input("Noisy scan? (1/0): ")
 filtered= input ("Filtered scan? (1/0): ")
 
 pcds=[]
-for i in range (0,scans):
+for i in range (20,scans+20):
     pointclouds= dataset_loader.loadscan(sensors,i,int(noisy))
     pcds.append(pointcloud.generateGraphics(pointclouds,int(filtered)))
 
