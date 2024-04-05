@@ -15,12 +15,20 @@ def plot_trajectories(bounding_boxes):
         x_coords.append(np.asarray(bbox.get_center())[0])
         y_coords.append(np.asarray(bbox.get_center())[1])
 
-
-    plt.plot(x_coords, y_coords, marker='o', linestyle='')  
+    
+    trajectories= np.loadtxt("./BLENSOR/pitt_trajectories.csv", delimiter=",",skiprows=1,usecols=range(0,3))
+    x_coordspitt=trajectories[:,1]
+    y_coordspitt=trajectories[:,2]
+    plt.plot(x_coordspitt, y_coordspitt, marker='o', linestyle='',markersize=3, label= 'Ground Truth')  
+    plt.plot(x_coords, y_coords, marker='o', linestyle='',markersize=3, label='Tracked trajectories')  
     plt.xlabel("X-axis")
     plt.ylabel("Y-axis")
     plt.title("Detected Trajectories")
     plt.show()
+                
+
+   
+    
 
             
         

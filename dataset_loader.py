@@ -60,7 +60,7 @@ def loadpitt():
         trajectories= np.loadtxt("./BLENSOR/pitt_trajectories.csv", delimiter=",",skiprows=1,usecols=range(0,3))
         x_coords=trajectories[:,1]
         y_coords=trajectories[:,2]
-        plt.plot(x_coords, y_coords, marker='o', linestyle='')  
+        plt.plot(x_coords, y_coords, marker='o', linestyle='',markersize=3)  
         plt.xlabel("X-axis")
         plt.ylabel("Y-axis")
         plt.title("Real Trajectories")

@@ -5,11 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dce93ca3-74ef-414e-b4c0-61733f0a5b26" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/blensor_analysis.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/blensor_analysis.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data.csv" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/dataset_loader.py" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_loader.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mainprogram.py" beforeDir="false" afterPath="$PROJECT_DIR$/mainprogram.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pointcloud.py" beforeDir="false" afterPath="$PROJECT_DIR$/pointcloud.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tracking.py" beforeDir="false" afterPath="$PROJECT_DIR$/tracking.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -29,20 +28,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "advanced.settings",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;advanced.settings&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -60,6 +59,7 @@
       <updated>1708679964150</updated>
       <workItem from="1708679968247" duration="35000" />
       <workItem from="1710117434771" duration="700000" />
+      <workItem from="1712155952601" duration="25000" />
     </task>
     <servers />
   </component>

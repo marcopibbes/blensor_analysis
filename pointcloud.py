@@ -32,7 +32,7 @@ def clusterData(pcds):
   
   for pcd in pcds:
 
-    labels = np.array(pcd.cluster_dbscan(eps=2, min_points=5, print_progress=True))
+    labels = np.array(pcd.cluster_dbscan(eps=1.5, min_points=5, print_progress=True))
 
     clusters = []
     for label in np.unique(labels):
@@ -55,7 +55,7 @@ def clusterData(pcds):
   return global_bboxes
 
 def visualizeGraphics(pcds):
- # for pcd in pcds:
-  o3d.visualization.draw([pcds[0],pcds[8]],show_skybox=False)
+  for pcd in pcds:
+    o3d.visualization.draw([pcd],show_skybox=False)
     
   

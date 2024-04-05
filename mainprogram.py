@@ -16,8 +16,7 @@ for i in range (20,scans+20):
     pointclouds= dataset_loader.loadscan(sensors,i,int(noisy))
     pcds.append(pointcloud.generateGraphics(pointclouds,int(filtered)))
 
-#pointcloud.visualizeGraphics(pcds)
+pointcloud.visualizeGraphics(pcds)
 bounding_boxes=pointcloud.clusterData(pcds)
 trackedboxes=tracking.track(bounding_boxes)
 tracking.plot_trajectories(trackedboxes)
-dataset_loader.loadpitt()
